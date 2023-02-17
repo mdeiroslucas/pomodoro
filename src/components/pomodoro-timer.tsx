@@ -4,6 +4,12 @@ import { secondsToTime } from '../utils/seconds-to-time';
 import { Timer } from './timer';
 import { Button } from './button';
 
+const bellStart = require('../sounds/src_sounds_bell-start.mp3');
+const bellFinish = require('../sounds/src_sounds_bell-finish.mp3');
+
+const audioStartWorking = new Audio(bellStart);
+const audioStopWorking = new Audio(bellFinish);
+
 interface Props {
     PomodoroTime: number;
     shortRestTime: number;
@@ -31,6 +37,7 @@ export function PomodoroTimer(props: Props): JSX.Element {
         setWorking(true);
         setResting(false);
         setMainTime(props.PomodoroTime);
+        audioStartWorking.play()
     };
 
     const configureResting = (long: boolean) => {
@@ -38,6 +45,7 @@ export function PomodoroTimer(props: Props): JSX.Element {
         setWorking(false);
         setResting(true);
         setMainTime(props.PomodoroTime);
+        audioStopWorking.play();
 
         if (long) {
             setMainTime(props.longRestTime);
