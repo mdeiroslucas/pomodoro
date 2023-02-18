@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  max-width: 640px;
+  max-width: 40em;
   margin: 0 auto;
 }
 

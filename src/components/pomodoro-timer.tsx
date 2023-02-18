@@ -11,10 +11,10 @@ const audioStartWorking = new Audio(bellStart);
 const audioStopWorking  = new Audio(bellFinish);
 
 interface Props {
-    PomodoroTime: number;
-    shortRestTime: number;
-    longRestTime: number;
-    cycles: number;
+    PomodoroTime    : number;
+    shortRestTime   : number;
+    longRestTime    : number;
+    cycles          : number;
 }
 export function PomodoroTimer(props: Props): JSX.Element {
     const [mainTime, setMainTime]                   = React.useState(props.PomodoroTime);
